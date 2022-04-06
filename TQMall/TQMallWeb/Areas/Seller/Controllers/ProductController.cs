@@ -25,7 +25,7 @@ namespace TQMall.Areas.Seller.Controllers
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             var user = Session["username"] as string;
             var model = productDAL.GetProductList("").Where(x=>x.Username==user);
-            model.Reverse();
+            model = model.Reverse();
             if (string.IsNullOrEmpty(keyword))
             {
                 return View(model.ToPagedList(pageIndex, pageSize));
