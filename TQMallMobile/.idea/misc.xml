@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/BTL_WEBAPI/TQMallMobile/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/menu/nav_login.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
