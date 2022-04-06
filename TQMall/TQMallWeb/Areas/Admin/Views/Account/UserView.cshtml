@@ -1,0 +1,113 @@
+﻿@using TQMallWeb.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Account>
+@{
+    Layout = null;
+}
+<div class="col-12">
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Danh sách người dùng</h6>
+            </div>
+        </div>
+        <br />
+        <div class="card-body px-0 pb-2" ng-init="GetSellers('')">
+            <div class="table-responsive p-0">
+                @using (Html.BeginForm())
+                {
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center col-3">
+                        <div class="input-group input-group-outline">
+                            <label class="form-label">Nhập từ khóa cần tìm</label>
+                            @Html.TextBox("keyword", null, new
+                       {
+                           @type = "text",
+                           @class = "form-control"
+                       })
+
+                            <input type="submit" value="Tìm kiếm" class="alert-info" style="color: white" />
+                        </div>
+                    </div>
+                }
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên tài khoản</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên shop</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Avatar</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày sinh</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số điện thoại</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa chỉ shop</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
+                            <th class="text-secondary opacity-7"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <!-- Modal -->
+                            <div class="modal fade" id="@item.Username" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc khóa tài khoản <b>@item.Username</b> này không????
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thôi</button>
+                                            <a class="btn btn-danger" href="@Url.Action("Block", "Account", new {username = item.Username})">Khóa nó lại</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <p class="text-secondary text-xs font-weight-bold">@item.Username</p>
+                                </td>
+
+                                <td class="align-middle text-center">
+                                    <p class="text-secondary text-xs font-weight-bold">@item.FullName</p>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <img src="@item.Avatar" height="100" />
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">@item.DateOfBirth</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">@item.PhoneNumber</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">@item.Address</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">Hoạt động</span>
+                                </td>
+                                <td class="align-middle">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#@item.Username">
+                                        Khóa tài khoản
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div id="container" style="margin-left: 20px">
+                    <p></p>
+                    <p></p>
+
+                    <div class="pagination" style="margin-left: 400px">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

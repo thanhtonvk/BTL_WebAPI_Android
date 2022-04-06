@@ -1,0 +1,61 @@
+﻿@using TQMallWeb.Models
+
+@model IEnumerable<OrderDetail>
+@{
+    Layout = "~/Areas/Seller/Views/Shared/_Layout.cshtml";
+}
+<div class="col-12">
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Chi tiết đơn hàng</h6>
+            </div>
+        </div>
+
+        <br />
+        <div class="card-body px-0 pb-2" ng-init="GetSellers('')">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên sản phẩm</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hình ảnh</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phân loại</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Đơn giá</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                           
+                        <tr>
+                            <td class="align-middle text-center">
+                                <p class="text-secondary text-xs font-weight-bold">@item.Product().Name</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <img src="@item.ProductDetail().Image" height="100" />
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="text-secondary text-xs font-weight-bold">@item.ProductDetail().Name</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="text-secondary text-xs font-weight-bold">@item.Quantity</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="text-secondary text-xs font-weight-bold">@Utils.formatMoney(item.ProductDetail().Cost.Value) đ</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="text-secondary text-xs font-weight-bold">@Utils.formatMoney(item.ProductDetail().Cost.Value*item.Quantity) đ</p>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+    </div>
+</div>

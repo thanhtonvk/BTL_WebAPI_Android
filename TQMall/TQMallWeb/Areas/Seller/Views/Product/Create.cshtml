@@ -1,0 +1,157 @@
+﻿@model TQMallWeb.Models.Product
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Areas/Seller/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<div class="card my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Thêm sản phẩm</h6>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <b class="alert-danger">@ViewBag.Noti</b>
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label" })
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        <div class="input-group input-group-outline">
+                            <div class="input-group input-group-outline">
+                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Danh mục</label>
+                    <div class="input-group input-group-outline">
+                        @Html.DropDownListFor(x => x.IDCategory, ViewBag.Category as SelectList, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDCategory, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <label class="control-label">Hãng sản xuất</label>
+                        <div class="input-group input-group-outline">
+                            @Html.DropDownListFor(x => x.IDBrand, ViewBag.Brand as SelectList, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDBrand, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
+                    @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Sale, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.Sale, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sale, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.FlashSaleFrom, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.FlashSaleFrom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlashSaleFrom, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.FlashSaleTo, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.FlashSaleTo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlashSaleTo, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                <div class="col-md-3">
+                    <div class="input-group input-group-outline">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <br />
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Thêm mới" class="btn btn-instagram" />
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+<script>
+    CKEDITOR.replace('Description');
+    CKEDITOR.add
+    CKEDITOR.replace('Details');
+    CKEDITOR.add
+
+</script>
+

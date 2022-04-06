@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c856de6e-bcb7-476d-97c3-fc49661ad87b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Controllers/BrandController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Brand/Create.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Brand/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Brand/Update.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Seller/Views/Product/Create.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Seller/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/Views/Home/NotFound404.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/bin/EntityFramework.SqlServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/bin/EntityFramework.SqlServer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/bin/EntityFramework.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TQMallWeb/bin/EntityFramework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/.signature.p7s" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/EntityFramework.6.4.4.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/EntityFramework.DefaultItems.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/EntityFramework.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/EntityFramework.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/Microsoft.Data.Entity.Build.Tasks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/netcoreapp3.0/EntityFramework.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/build/netcoreapp3.0/EntityFramework.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/buildTransitive/EntityFramework.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/buildTransitive/EntityFramework.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/buildTransitive/netcoreapp3.0/EntityFramework.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/buildTransitive/netcoreapp3.0/EntityFramework.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/content/net40/App.config.install.xdt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/content/net40/App.config.transform" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/content/net40/Web.config.install.xdt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/content/net40/Web.config.transform" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net40/EntityFramework.SqlServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net40/EntityFramework.SqlServer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net40/EntityFramework.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net40/EntityFramework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net45/EntityFramework.SqlServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net45/EntityFramework.SqlServer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net45/EntityFramework.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/net45/EntityFramework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/netstandard2.1/EntityFramework.SqlServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/netstandard2.1/EntityFramework.SqlServer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/netstandard2.1/EntityFramework.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/lib/netstandard2.1/EntityFramework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/EntityFramework6.PS2.psd1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/EntityFramework6.PS2.psm1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/EntityFramework6.psd1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/EntityFramework6.psm1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/about_EntityFramework6.help.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/init.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/install.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net40/any/ef6.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net40/any/ef6.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net40/win-x86/ef6.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net40/win-x86/ef6.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net45/any/ef6.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net45/any/ef6.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net45/win-x86/ef6.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/net45/win-x86/ef6.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/netcoreapp3.0/any/ef6.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/netcoreapp3.0/any/ef6.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/EntityFramework.6.4.4/tools/netcoreapp3.0/any/ef6.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TQMall/project-colors.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TQMall/project-colors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TQMall/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TQMall/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TQMall/v17/fileList.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TQMall/v17/fileList.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/AccountDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/AccountDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/BrandDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/BrandDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/CategoryDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/CategoryDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/DataAccessLayer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/ImageProductDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/ImageProductDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/OrderDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/OrderDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/OrderDetailsDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/OrderDetailsDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/ProductDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/ProductDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/ProductDetailsDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/ProductDetailsDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/VoucherDAL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/VoucherDAL.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.exe.config" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.exe.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/DataAccessLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/Models.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/Models.exe.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/bin/Debug/Models.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DataAccessLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessLayer/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Account.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/Models/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Brand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Brand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Cart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ImageProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ImageProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Models.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/OrderDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/OrderDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ProductDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ProductDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ReviewProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ReviewProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Voucher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Voucher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/bin/Debug/Models.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Models/bin/Debug/Models.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/bin/Debug/Models.exe.config" beforeDir="false" afterPath="$PROJECT_DIR$/Models/bin/Debug/Models.exe.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/bin/Debug/Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Models/bin/Debug/Models.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Models/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/obj/Debug/Models.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Models/obj/Debug/Models.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/obj/Debug/Models.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Models/obj/Debug/Models.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/obj/Debug/Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Models/obj/Debug/Models.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMall.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TQMall.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/App/Admin/Account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/App/Home/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Account/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Account/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Admin/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Areas/Seller/SellerAreaRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Areas/Seller/SellerAreaRegistration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/TQMallWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/TQMallWeb.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/TQMallWeb.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/TQMallWeb.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Views/Home/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Views/Home/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Views/Shared/_Layout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/Web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/BussinessLayer.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/BussinessLayer.exe.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/BussinessLayer.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/DataAccessLayer.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/DataAccessLayer.exe.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/DataAccessLayer.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/Models.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/Models.exe.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/Models.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.dll.config" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.dll.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/bin/TQMallWeb.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/obj/Debug/TQMallWeb.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TQMallWeb/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/TQMallWeb/packages.config" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27NnuHshwg7XKAoU9L0Dp20oJ4R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TQMallMobile" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c856de6e-bcb7-476d-97c3-fc49661ad87b" name="Default Changelist" comment="" />
+      <created>1649169632891</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649169632891</updated>
+    </task>
+    <servers />
+  </component>
+</project>

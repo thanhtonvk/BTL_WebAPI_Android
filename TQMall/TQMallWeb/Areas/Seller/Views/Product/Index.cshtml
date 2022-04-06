@@ -1,0 +1,182 @@
+﻿@using TQMallWeb.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Areas/Seller/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Name").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Home/Prefix",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Name, value: item.Name };
+                        }))
+
+                    }
+                })
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+    })
+</script>
+<div class="row">
+    <div class="col-12">
+
+        <div class="card my-4">
+            @*add product*@
+
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">Quản lý sản phẩm</h6>
+                </div>
+            </div>
+
+            <div class="card-body px-0 pb-2">
+                <a class="btn alert-info bg-gradient-secondary" style="color: white" href="@Url.Action("Create","Product")">Thêm sản phẩm</a>
+                @using (Html.BeginForm())
+                {
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center col-3">
+                        <div class="input-group input-group-outline">
+                            <label class="form-label">Nhập từ khóa cần tìm</label>
+                            @Html.TextBox("keyword", null, new
+                       {
+                           @type = "text",
+                           @class = "form-control",
+                           @id = "Name"
+                       })
+                            <input type="submit" value="Tìm kiếm" class="alert-primary" style="color: white" />
+                        </div>
+                    </div>
+                }
+
+
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên sản phẩm</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá bán</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giảm giá</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">FlashSale từ</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">FlashSale đến</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hình ảnh</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng còn</th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <p class="text-secondary text-xs font-weight-bold">@item.Name</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <p class="text-secondary text-xs font-weight-bold">@Utils.formatMoney(item.Cost.Value) đ</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <p class="text-secondary text-xs font-weight-bold">@item.Sale</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <p class="text-secondary text-xs font-weight-bold">@item.FlashSaleFrom</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <p class="text-secondary text-xs font-weight-bold">@item.FlashSaleTo</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <img src="@item.Image" height="150" />
+
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <p class="text-secondary text-xs font-weight-bold">@item.Quantity</p>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a class="btn btn-success" href="@Url.Action("Details", "Product", new {id = item.ID})">Chi tiết</a>
+                                        <a class="btn btn-info" href="@Url.Action("Update", "Product", new {id = item.ID})">Cập nhật</a>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="@item.ID" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Bạn có chắc xóa cái <b>@item.Name</b> này không????
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thôi</button>
+                                                        <a class="btn btn-danger" href="@Url.Action("Delete", "Product", new {id = item.ID})">Cho bay màu  thôi</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#@item.ID">
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <div id="container" style="margin-left: 20px">
+                        <p></p>
+                        <p></p>
+                        <div class="pagination" style="margin-left: 400px">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

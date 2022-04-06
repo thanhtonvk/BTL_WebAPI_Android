@@ -1,0 +1,156 @@
+﻿@model TQMallWeb.Models.Product
+@using TQMallWeb.Models
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Areas/Seller/Views/Shared/_Layout.cshtml";
+}
+<div class="card my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 row">
+            <h6 class="text-white text-capitalize ps-3 col-md-9">Thông tin sản phẩm</h6>
+            <a class="btn alert-info bg-gradient-info col-md-3" style="color: white" href="@Url.Action("Index","ProductDetails",new {idProduct = Model.ID})">Quản lý chi tiết sản phẩm</a>
+        </div>
+        <br />
+       <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @Model.Name
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group input-group-outline">
+                        <div class="form-control">
+                            <img src="@Model.Image" height="150" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="control-label">Danh mục</label>
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @Model.GetCategory().Name
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <label class="control-label">Hãng sản xuất</label>
+                    <div class="input-group input-group-outline">
+                        <div class="form-control">
+                            @Model.GetBrand().Name
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @Utils.formatMoney(Model.Cost.Value) đ
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Sale, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @{
+                            if (Model.Sale != null)
+                            {
+                                <p>@(Model.Sale*100) %</p>
+                            }
+                            else
+                            {
+                                <p>Không</p>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.FlashSaleFrom, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @{
+                            if (Model.FlashSaleFrom != null)
+                            {
+                                <p> @Model.FlashSaleFrom:00h </p>
+                            }
+                            else
+                            {
+                                <p>Không</p>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.FlashSaleTo, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group input-group-outline">
+                    <div class="form-control">
+                        @{
+                            if (Model.FlashSaleTo != null)
+                            {
+                                <p> @Model.FlashSaleTo:00h </p>
+                            }
+                            else
+                            {
+                                <p>Không</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group input-group-outline">
+                <div class="form-control">
+                    @Model.Quantity
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="input-group input-group-outline">
+                <div class="form-control">
+                    @Html.Raw(HttpUtility.HtmlDecode(Model.Description))
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="input-group input-group-outline">
+                <div class="form-control">
+                    @Html.Raw(HttpUtility.HtmlDecode(Model.Details))
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
