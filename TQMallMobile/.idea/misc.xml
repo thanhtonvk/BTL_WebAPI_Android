@@ -6,6 +6,7 @@
         <entry key="..\:/BTL_WEBAPI/TQMallMobile/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/beoplay_a9_.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/border_edittext.xml" value="0.311" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/border_nav.xml" value="0.207" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/button_primary.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_arrow_right.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_register.xml" value="0.311" />
@@ -14,11 +15,14 @@
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_1.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_2.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_3.xml" value="0.311" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_white.xml" value="0.207" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_start.xml" value="0.20701754385964913" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_register.xml" value="0.22" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/menu/nav_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/menu/nav_main.xml" value="0.20701754385964913" />
       </map>
     </option>
   </component>
