@@ -20,5 +20,6 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }

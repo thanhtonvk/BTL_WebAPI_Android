@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.tonandquangdz.tqmallmobile.Adapter.LoginAdapter;
+import com.tonandquangdz.tqmallmobile.Adapter.MainAdapter;
 import com.tonandquangdz.tqmallmobile.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViewLogin() {
-        LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        view_login.setAdapter(adapter);
-        view_login.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        MainAdapter adapter = new MainAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        view_main.setAdapter(adapter);
+        view_main.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -45,10 +45,16 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        view_nav.getMenu().findItem(R.id.item_login).setChecked(true);
+                        view_nav.getMenu().findItem(R.id.item_home).setChecked(true);
                         break;
                     case 1:
-                        view_nav.getMenu().findItem(R.id.item_register).setChecked(true);
+                        view_nav.getMenu().findItem(R.id.item_history).setChecked(true);
+                        break;
+                    case 2:
+                        view_nav.getMenu().findItem(R.id.item_cart).setChecked(true);
+                        break;
+                    case 3:
+                        view_nav.getMenu().findItem(R.id.item_person).setChecked(true);
                         break;
                 }
             }
@@ -65,16 +71,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.item_login:
-                        view_login.setCurrentItem(0);
+                    case R.id.item_home:
+                        view_main.setCurrentItem(0);
                         break;
-                    case R.id.item_register:
-                        view_login.setCurrentItem(1);
+                    case R.id.item_history:
+                        view_main.setCurrentItem(1);
+                        break;
+                    case R.id.item_cart:
+                        view_main.setCurrentItem(2);
+                        break;
+                    case R.id.item_person:
+                        view_main.setCurrentItem(3);
                         break;
                 }
                 return true;
             }
         });
-        view_login.setOffscreenPageLimit(2);
     }
 }

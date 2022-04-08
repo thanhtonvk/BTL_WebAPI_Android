@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using TQMallAPI.Models;
@@ -11,9 +12,21 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/categories/getcategories")]
-        public IQueryable<Category> GetCategoryList()
+        public IEnumerable<Category> GetCategoryList()
         {
-            return _dbContext.Categories.Where(x => x.Status == true);
+            List<Category> list = new List<Category>();
+            var model = _dbContext.Categories.Where(x => x.Status == true);
+            foreach (var item in model)
+            {
+                Category category = new Category()
+                {
+                    ID = item.ID,
+                    Name = item.Name,
+                    Image = item.Image,
+                };
+                list.Add(category);
+            }
+            return list;
         }
 
         [HttpGet]
@@ -21,6 +34,12 @@ namespace TQMallAPI.Controllers
         public Category GetCategoryByID(int id)
         {
             var model = _dbContext.Categories.Find(id);
+            Category category = new Category()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                Image = model.Image,
+            };
             return model;
         }
 
@@ -28,13 +47,13 @@ namespace TQMallAPI.Controllers
         [Route("api/categories/postcategory")]
         public int PostCategory([FromBody] Category category)
         {
-     
-                category.Status = true;
-                _dbContext.Categories.Add(category);
-                return _dbContext.SaveChanges();
-            
 
-      
+            category.Status = true;
+            _dbContext.Categories.Add(category);
+            return _dbContext.SaveChanges();
+
+
+
         }
 
         [HttpPut]

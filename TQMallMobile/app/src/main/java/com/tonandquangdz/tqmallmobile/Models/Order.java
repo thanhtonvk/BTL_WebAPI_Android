@@ -1,12 +1,12 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class Order {
-    public int ID ;
-    public String Username ;
-    public String Date ;
-    public String PhoneNumber ;
-    public String Address ;
-    public Short Status ;
+    private int ID ;
+    private String Username ;
+    private String Date ;
+    private String PhoneNumber ;
+    private String Address ;
+    private Short Status ;
 
     public int getID() {
         return ID;

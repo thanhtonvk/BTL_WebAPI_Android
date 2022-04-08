@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.Mvc;
-
 namespace TQMallAPI.Models
 {
     using System;
@@ -34,9 +32,7 @@ namespace TQMallAPI.Models
         public Nullable<int> FlashSaleFrom { get; set; }
         public Nullable<int> FlashSaleTo { get; set; }
         public string Image { get; set; }
-        [AllowHtml]
         public string Description { get; set; }
-        [AllowHtml]
         public string Details { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<bool> Status { get; set; }

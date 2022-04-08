@@ -13,11 +13,11 @@
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Int16" />
     <Property Name="DataUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.fk_1" FromRole="Account" ToRole="Product" />
-    <NavigationProperty Name="Orders" Relationship="Self.fk_11" FromRole="Account" ToRole="Order" />
-    <NavigationProperty Name="ReviewProducts" Relationship="Self.fk_5" FromRole="Account" ToRole="ReviewProduct" />
-    <NavigationProperty Name="Vouchers" Relationship="Self.fk_7" FromRole="Account" ToRole="Voucher" />
-    <NavigationProperty Name="Carts" Relationship="Self.fk_8" FromRole="Account" ToRole="Cart" />
+    <NavigationProperty Name="Products" Relationship="TQMallModel.fk_1" FromRole="Account" ToRole="Product" />
+    <NavigationProperty Name="Orders" Relationship="TQMallModel.fk_11" FromRole="Account" ToRole="Order" />
+    <NavigationProperty Name="ReviewProducts" Relationship="TQMallModel.fk_5" FromRole="Account" ToRole="ReviewProduct" />
+    <NavigationProperty Name="Vouchers" Relationship="TQMallModel.fk_7" FromRole="Account" ToRole="Voucher" />
+    <NavigationProperty Name="Carts" Relationship="TQMallModel.fk_8" FromRole="Account" ToRole="Cart" />
   </EntityType>
   <EntityType Name="Brand">
     <Key>
@@ -27,7 +27,7 @@
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Products" Relationship="Self.fk_3" FromRole="Brand" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="TQMallModel.fk_3" FromRole="Brand" ToRole="Product" />
   </EntityType>
   <EntityType Name="Cart">
     <Key>
@@ -37,8 +37,8 @@
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IDProductDetails" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <NavigationProperty Name="Account" Relationship="Self.fk_8" FromRole="Cart" ToRole="Account" />
-    <NavigationProperty Name="ProductDetail" Relationship="Self.fk_9" FromRole="Cart" ToRole="ProductDetails" />
+    <NavigationProperty Name="Account" Relationship="TQMallModel.fk_8" FromRole="Cart" ToRole="Account" />
+    <NavigationProperty Name="ProductDetail" Relationship="TQMallModel.fk_9" FromRole="Cart" ToRole="ProductDetail" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -48,7 +48,7 @@
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Products" Relationship="Self.fk_2" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="TQMallModel.fk_2" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="ImageProduct">
     <Key>
@@ -58,7 +58,7 @@
     <Property Name="IDProduct" Type="Int32" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Product" Relationship="Self.fk_4" FromRole="ImageProduct" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="TQMallModel.fk_4" FromRole="ImageProduct" ToRole="Product" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -70,8 +70,8 @@
     <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Int16" />
-    <NavigationProperty Name="Account" Relationship="Self.fk_11" FromRole="Order" ToRole="Account" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.fk_12" FromRole="Order" ToRole="OrderDetails" />
+    <NavigationProperty Name="Account" Relationship="TQMallModel.fk_11" FromRole="Order" ToRole="Account" />
+    <NavigationProperty Name="OrderDetails" Relationship="TQMallModel.fk_12" FromRole="Order" ToRole="OrderDetail" />
   </EntityType>
   <EntityType Name="OrderDetail">
     <Key>
@@ -81,8 +81,8 @@
     <Property Name="IDOrder" Type="Int32" Nullable="false" />
     <Property Name="IDProductDetails" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="Self.fk_12" FromRole="OrderDetails" ToRole="Order" />
-    <NavigationProperty Name="ProductDetail" Relationship="Self.fk_13" FromRole="OrderDetails" ToRole="ProductDetails" />
+    <NavigationProperty Name="Order" Relationship="TQMallModel.fk_12" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="ProductDetail" Relationship="TQMallModel.fk_13" FromRole="OrderDetail" ToRole="ProductDetail" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -102,12 +102,12 @@
     <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Account" Relationship="Self.fk_1" FromRole="Product" ToRole="Account" />
-    <NavigationProperty Name="Brand" Relationship="Self.fk_3" FromRole="Product" ToRole="Brand" />
-    <NavigationProperty Name="Category" Relationship="Self.fk_2" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="ImageProducts" Relationship="Self.fk_4" FromRole="Product" ToRole="ImageProduct" />
-    <NavigationProperty Name="ProductDetails" Relationship="Self.fk_10" FromRole="Product" ToRole="ProductDetails" />
-    <NavigationProperty Name="ReviewProducts" Relationship="Self.fk_6" FromRole="Product" ToRole="ReviewProduct" />
+    <NavigationProperty Name="Account" Relationship="TQMallModel.fk_1" FromRole="Product" ToRole="Account" />
+    <NavigationProperty Name="Brand" Relationship="TQMallModel.fk_3" FromRole="Product" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="TQMallModel.fk_2" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="ImageProducts" Relationship="TQMallModel.fk_4" FromRole="Product" ToRole="ImageProduct" />
+    <NavigationProperty Name="ProductDetails" Relationship="TQMallModel.fk_10" FromRole="Product" ToRole="ProductDetail" />
+    <NavigationProperty Name="ReviewProducts" Relationship="TQMallModel.fk_6" FromRole="Product" ToRole="ReviewProduct" />
   </EntityType>
   <EntityType Name="ProductDetail">
     <Key>
@@ -119,9 +119,9 @@
     <Property Name="Cost" Type="Int32" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Carts" Relationship="Self.fk_9" FromRole="ProductDetails" ToRole="Cart" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.fk_13" FromRole="ProductDetails" ToRole="OrderDetails" />
-    <NavigationProperty Name="Product" Relationship="Self.fk_10" FromRole="ProductDetails" ToRole="Product" />
+    <NavigationProperty Name="Carts" Relationship="TQMallModel.fk_9" FromRole="ProductDetail" ToRole="Cart" />
+    <NavigationProperty Name="OrderDetails" Relationship="TQMallModel.fk_13" FromRole="ProductDetail" ToRole="OrderDetail" />
+    <NavigationProperty Name="Product" Relationship="TQMallModel.fk_10" FromRole="ProductDetail" ToRole="Product" />
   </EntityType>
   <EntityType Name="ReviewProduct">
     <Key>
@@ -133,8 +133,8 @@
     <Property Name="Rate" Type="Int32" />
     <Property Name="Review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Account" Relationship="Self.fk_5" FromRole="ReviewProduct" ToRole="Account" />
-    <NavigationProperty Name="Product" Relationship="Self.fk_6" FromRole="ReviewProduct" ToRole="Product" />
+    <NavigationProperty Name="Account" Relationship="TQMallModel.fk_5" FromRole="ReviewProduct" ToRole="Account" />
+    <NavigationProperty Name="Product" Relationship="TQMallModel.fk_6" FromRole="ReviewProduct" ToRole="Product" />
   </EntityType>
   <EntityType Name="Voucher">
     <Key>
@@ -145,164 +145,8 @@
     <Property Name="Sale" Type="Double" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Account" Relationship="Self.fk_7" FromRole="Voucher" ToRole="Account" />
+    <NavigationProperty Name="Account" Relationship="TQMallModel.fk_7" FromRole="Voucher" ToRole="Account" />
   </EntityType>
-  <Association Name="fk_1">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_11">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_5">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="ReviewProduct" Type="Self.ReviewProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="ReviewProduct">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_7">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="Voucher">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_8">
-    <End Role="Account" Type="Self.Account" Multiplicity="1" />
-    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="Cart">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_3">
-    <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Brand">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="IDBrand" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_9">
-    <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="1" />
-    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductDetails">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Cart">
-        <PropertyRef Name="IDProductDetails" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_2">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Category">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="IDCategory" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_4">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ImageProduct" Type="Self.ImageProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ImageProduct">
-        <PropertyRef Name="IDProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_12">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="OrderDetails">
-        <PropertyRef Name="IDOrder" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_13">
-    <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductDetails">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="OrderDetails">
-        <PropertyRef Name="IDProductDetails" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_10">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ProductDetails">
-        <PropertyRef Name="IDProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_6">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ReviewProduct" Type="Self.ReviewProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ReviewProduct">
-        <PropertyRef Name="IDProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="Brands" EntityType="Self.Brand" />
@@ -315,57 +159,224 @@
     <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
     <EntitySet Name="ReviewProducts" EntityType="Self.ReviewProduct" />
     <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
-    <AssociationSet Name="fk_1" Association="Self.fk_1">
+    <EntitySet Name="sysdiagrams" EntityType="TQMallModel.sysdiagram" />
+    <AssociationSet Name="fk_1" Association="TQMallModel.fk_1">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="fk_11" Association="Self.fk_11">
+    <AssociationSet Name="fk_11" Association="TQMallModel.fk_11">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="fk_5" Association="Self.fk_5">
+    <AssociationSet Name="fk_5" Association="TQMallModel.fk_5">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="ReviewProduct" EntitySet="ReviewProducts" />
     </AssociationSet>
-    <AssociationSet Name="fk_7" Association="Self.fk_7">
+    <AssociationSet Name="fk_7" Association="TQMallModel.fk_7">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="Voucher" EntitySet="Vouchers" />
     </AssociationSet>
-    <AssociationSet Name="fk_8" Association="Self.fk_8">
+    <AssociationSet Name="fk_8" Association="TQMallModel.fk_8">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="Cart" EntitySet="Carts" />
     </AssociationSet>
-    <AssociationSet Name="fk_3" Association="Self.fk_3">
+    <AssociationSet Name="fk_3" Association="TQMallModel.fk_3">
       <End Role="Brand" EntitySet="Brands" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="fk_9" Association="Self.fk_9">
-      <End Role="ProductDetails" EntitySet="ProductDetails" />
+    <AssociationSet Name="fk_9" Association="TQMallModel.fk_9">
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
       <End Role="Cart" EntitySet="Carts" />
     </AssociationSet>
-    <AssociationSet Name="fk_2" Association="Self.fk_2">
+    <AssociationSet Name="fk_2" Association="TQMallModel.fk_2">
       <End Role="Category" EntitySet="Categories" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="fk_4" Association="Self.fk_4">
+    <AssociationSet Name="fk_4" Association="TQMallModel.fk_4">
       <End Role="Product" EntitySet="Products" />
       <End Role="ImageProduct" EntitySet="ImageProducts" />
     </AssociationSet>
-    <AssociationSet Name="fk_12" Association="Self.fk_12">
+    <AssociationSet Name="fk_12" Association="TQMallModel.fk_12">
       <End Role="Order" EntitySet="Orders" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
     </AssociationSet>
-    <AssociationSet Name="fk_13" Association="Self.fk_13">
-      <End Role="ProductDetails" EntitySet="ProductDetails" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    <AssociationSet Name="fk_13" Association="TQMallModel.fk_13">
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
     </AssociationSet>
-    <AssociationSet Name="fk_10" Association="Self.fk_10">
+    <AssociationSet Name="fk_10" Association="TQMallModel.fk_10">
       <End Role="Product" EntitySet="Products" />
-      <End Role="ProductDetails" EntitySet="ProductDetails" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
     </AssociationSet>
-    <AssociationSet Name="fk_6" Association="Self.fk_6">
+    <AssociationSet Name="fk_6" Association="TQMallModel.fk_6">
       <End Role="Product" EntitySet="Products" />
       <End Role="ReviewProduct" EntitySet="ReviewProducts" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="fk_1">
+    <End Type="TQMallModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_11">
+    <End Type="TQMallModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="TQMallModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_5">
+    <End Type="TQMallModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="TQMallModel.ReviewProduct" Role="ReviewProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="ReviewProduct">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_7">
+    <End Type="TQMallModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="TQMallModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_8">
+    <End Type="TQMallModel.Account" Role="Account" Multiplicity="1" />
+    <End Type="TQMallModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_3">
+    <End Type="TQMallModel.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IDBrand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_9">
+    <End Type="TQMallModel.ProductDetail" Role="ProductDetail" Multiplicity="1" />
+    <End Type="TQMallModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="IDProductDetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_2">
+    <End Type="TQMallModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IDCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_4">
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TQMallModel.ImageProduct" Role="ImageProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ImageProduct">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_12">
+    <End Type="TQMallModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="TQMallModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_13">
+    <End Type="TQMallModel.ProductDetail" Role="ProductDetail" Multiplicity="1" />
+    <End Type="TQMallModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDProductDetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_10">
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TQMallModel.ProductDetail" Role="ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_6">
+    <End Type="TQMallModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TQMallModel.ReviewProduct" Role="ReviewProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReviewProduct">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

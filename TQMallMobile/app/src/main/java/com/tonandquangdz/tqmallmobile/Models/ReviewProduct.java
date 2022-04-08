@@ -1,14 +1,14 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class ReviewProduct {
-    public int ID;
-    public String Username;
-    public int IDProduct;
-    public int Rate;
-    public String Review;
-    public String Image;
+    private int ID;
+    private String Username;
+    private int IDProduct;
+    private int Rate;
+    private String Review;
+    private String Image;
 
-    public  Account Account;
+    private  Account Account;
 
     public int getID() {
         return ID;

@@ -1,13 +1,13 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class Voucher {
-    public String ID;
-    public String Username;
-    public double Sale;
-    public int Quantity;
-    public boolean Status;
+    private String ID;
+    private String Username;
+    private double Sale;
+    private int Quantity;
+    private boolean Status;
 
-    public Account Account;
+    private Account Account;
 
     public String getID() {
         return ID;

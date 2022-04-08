@@ -1,15 +1,15 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class Account {
-    public String Username;
-    public String Password;
-    public String FullName;
-    public String Avatar;
-    public String DateOfBirth;
-    public String PhoneNumber;
-    public String Address;
-    public Short Status;
-    public String DataUser;
+    private String Username;
+    private String Password;
+    private String FullName;
+    private String Avatar;
+    private String DateOfBirth;
+    private String PhoneNumber;
+    private String Address;
+    private Short Status;
+    private String DataUser;
 
     public Account(String username, String password, String fullName, String avatar, String dateOfBirth, String phoneNumber, String address, Short status, String dataUser) {
         Username = username;

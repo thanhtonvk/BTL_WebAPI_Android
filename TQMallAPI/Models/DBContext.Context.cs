@@ -36,5 +36,6 @@ namespace TQMallAPI.Models
         public virtual DbSet<ProductDetail> ProductDetails { get; set; }
         public virtual DbSet<ReviewProduct> ReviewProducts { get; set; }
         public virtual DbSet<Voucher> Vouchers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

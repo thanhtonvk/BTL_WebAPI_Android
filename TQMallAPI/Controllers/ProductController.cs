@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -19,17 +20,30 @@ namespace TQMallAPI.Controllers
         {
             var model = _dbContext.Products.Where(x => x.Username == username);
             model.Reverse();
-            return model.Where(x=>x.Status ==true);
+            return model.Where(x => x.Status == true);
         }
 
         [HttpGet]
         [Route("api/product/getproductbyid")]
         public Product GetProductByID(int id)
         {
-            return _dbContext.Products.Find(id);
+            var model = _dbContext.Products.Find(id);
+            Product product = new Product()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                Cost = model.Cost,
+                Sale = model.Sale,
+                Image = model.Image,
+                Description = model.Description,
+                Details = model.Details,
+                Quantity = model.Quantity,
+
+            };
+            return product;
         }
 
-        [HttpGet]
+  	[HttpGet]
         [Route("api/product/getproductlist")]
         public IQueryable GetProductList(string keyword)
         {
@@ -47,7 +61,44 @@ namespace TQMallAPI.Controllers
             model.Reverse();
             return model;
         }
+        [HttpGet]
+        [Route("api/product/getproductmobile")]
+        public IEnumerable<Product> GetProducts(string keyword, int page, int size)
+        {
+            var model = _dbContext.Products;
+            List<Product> products = new List<Product>();
+            foreach (var item in model)
+            {
+                Product product = new Product()
+                {
+                    ID = item.ID,
+                    Name = item.Name,
+                    Cost = item.Cost,
+                    Sale = item.Sale,
+                    Image = item.Image,
+                };
+                if (string.IsNullOrEmpty(keyword))
+                {
+                    products.Add(product);
+                }
+                else
+                {
+                    if (item.Name.ToLower().Contains(keyword.ToLower()) || item.Brand.Name.ToLower().Contains(keyword.ToLower()) || item.Category.Name.ToLower().Contains(keyword.ToLower()))
+                    {
+                        products.Add(product);
+                    }
+                }
 
+
+            }
+            int quantity = page * size;
+            if (quantity > products.Count())
+            {
+                return products.ToList();
+            }
+
+            return products.Take(quantity).ToList();
+        }
         [HttpPost]
         [Route("api/product/addproduct")]
         public int AddProduct([FromBody] Product product)
@@ -76,6 +127,39 @@ namespace TQMallAPI.Controllers
             _dbContext.Entry(model).State = EntityState.Modified;
             return _dbContext.SaveChanges();
         }
+
+
+        [HttpGet]
+        [Route("api/product/getproductflashsale")]
+        public IHttpActionResult GetProductSale(int page, int size)
+        {
+            List<Product> products = new List<Product>();
+            int now = Convert.ToInt32(DateTime.Now.Hour);
+            var model = _dbContext.Products.Where(x =>
+                x.FlashSaleFrom != null && x.FlashSaleFrom != null && x.Status == true);
+            model = model.Where(x => x.FlashSaleFrom.Value <= now && x.FlashSaleTo.Value >= now);
+            foreach (var item in model)
+            {
+                Product product = new Product()
+                {
+                    ID = item.ID,
+                    Name = item.Name,
+                    Cost = item.Cost,
+                    Sale = item.Sale,
+                    Image = item.Image,
+                };
+                products.Add(product);
+            }
+
+            int quantity = page * size;
+            if (quantity > products.Count())
+            {
+                return Ok(products);
+            }
+
+            return Ok(products.Take(quantity));
+        }
+
 
         [HttpPost]
         [Route("api/product/uploadimage")]

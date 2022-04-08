@@ -1,10 +1,10 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class ImageProduct {
-    public int ID;
-    public int IDProduct;
-    public String Image;
-    public boolean Status;
+    private int ID;
+    private int IDProduct;
+    private String Image;
+    private boolean Status;
 
     public int getID() {
         return ID;

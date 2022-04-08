@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using TQMallAPI.Models;
@@ -11,9 +12,16 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/brands/getbrands")]
-        public IQueryable<Brand> GetBrandList()
+        public IEnumerable<Brand> GetBrandList()
         {
-            return _dbContext.Brands.Where(x => x.Status == true);
+            var model = _dbContext.Brands.Where(x => x.Status == true);
+            List<Brand> list = new List<Brand>();
+            foreach (var item in model)
+            {
+                Brand brand = new Brand() { ID = item.ID, Name = item.Name, Image = item.Image };
+                list.Add(brand);
+            }
+            return list;
         }
 
         [HttpGet]
@@ -21,6 +29,7 @@ namespace TQMallAPI.Controllers
         public Brand GetBrandByID(int id)
         {
             var model = _dbContext.Brands.Find(id);
+            Brand brand = new Brand() { ID = model.ID, Name = model.Name, Image = model.Image };
             return model;
         }
 

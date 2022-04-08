@@ -1,10 +1,10 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class Category {
-    public int ID;
-    public String Name;
-    public String Image;
-    public boolean Status;
+    private int ID;
+    private String Name;
+    private String Image;
+    private boolean Status;
 
     public int getID() {
         return ID;

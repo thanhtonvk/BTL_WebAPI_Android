@@ -1,13 +1,13 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class ProductDetail {
-    public int ID;
-    public int IDProduct;
-    public String Name;
-    public int Cost;
-    public String Image;
-    public boolean Status;
-    public  Product Product;
+    private int ID;
+    private int IDProduct;
+    private String Name;
+    private int Cost;
+    private String Image;
+    private boolean Status;
+    private  Product Product;
 
     public int getID() {
         return ID;

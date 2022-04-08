@@ -1,12 +1,12 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class OrderDetail {
-    public int ID;
-    public int IDOrder;
-    public int IDProductDetails;
-    public int Quantity;
-    public  Order Order;
-    public  ProductDetail ProductDetail;
+    private int ID;
+    private int IDOrder;
+    private int IDProductDetails;
+    private int Quantity;
+    private  Order Order;
+    private  ProductDetail ProductDetail;
 
     public int getID() {
         return ID;

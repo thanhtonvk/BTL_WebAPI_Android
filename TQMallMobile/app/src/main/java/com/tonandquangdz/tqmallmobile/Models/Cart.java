@@ -1,10 +1,10 @@
 package com.tonandquangdz.tqmallmobile.Models;
 
 public class Cart {
-    public int ID;
-    public String Username;
-    public int IDProductDetails;
-    public int Quantity;
+    private int ID;
+    private String Username;
+    private int IDProductDetails;
+    private int Quantity;
 
     public int getID() {
         return ID;

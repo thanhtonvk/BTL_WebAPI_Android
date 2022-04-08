@@ -27,6 +27,10 @@ public interface ProductService {
             .client(okHttpClient)
             .build()
             .create(ProductService.class);
-    @GET("product/getproductlist")
-    Call<List<Product>> getProductList(@Query("keyword") String keyword);
+
+    @GET("product/getproductmobile")
+    Call<List<Product>> getProductList(@Query("keyword") String keyword, @Query("page") int page, @Query("size") int size);
+
+    @GET("product/getproductflashsale")
+    Call<List<Product>> getFlashSales(@Query("page") int page, @Query("size") int size);
 }
