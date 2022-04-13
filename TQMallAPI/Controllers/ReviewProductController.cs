@@ -24,9 +24,25 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/reviewproduct/getreview")]
-        public IQueryable<ReviewProduct> GetReview(int IDProduct)
+        public IEnumerable<ReviewProduct> GetReview(int IDProduct)
         {
-            return _dbContext.ReviewProducts.Where(x => x.IDProduct == IDProduct);
+            List<ReviewProduct> reviewProducts = new List<ReviewProduct>();
+            var model = _dbContext.ReviewProducts.Where(x => x.IDProduct == IDProduct);
+            foreach (var item in model)
+            {
+                ReviewProduct reviewProduct = new ReviewProduct()
+                {
+                    ID = item.ID,
+                    IDProduct = item.IDProduct,
+                    Image = item.Image,
+                    Rate = item.Rate,
+                    Review = item.Review,
+                    Username = item.Username
+                };
+                reviewProducts.Add(reviewProduct);
+            }
+
+            return reviewProducts;
         }
     }
 }

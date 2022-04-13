@@ -9,27 +9,49 @@
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/border_nav.xml" value="0.207" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/button_primary.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_arrow_right.xml" value="0.311" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2275" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_camera.xml" value="0.207" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_cart.xml" value="0.2275" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_mess.xml" value="0.2275" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_register.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_search.xml" value="0.207" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_star_border.xml" value="0.1495" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_star_rate.xml" value="0.2275" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/ic_vip.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/oval.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_1.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_2.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_3.xml" value="0.311" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/drawable/rectangle_white.xml" value="0.207" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_brand_list.xml" value="0.33" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_category_list.xml" value="0.25" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_flash_sale_list.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_pay.xml" value="0.25" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_product.xml" value="0.25" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_product_list.xml" value="0.22" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_product_list_by_brand.xml" value="0.3087719298245614" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_product_list_by_category.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/activity_start.xml" value="0.20701754385964913" />
-        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_cart.xml" value="0.4794921875" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/dialog_choose_product.xml" value="0.33" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_cart.xml" value="0.33" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_comment.xml" value="0.22" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_description.xml" value="0.4677734375" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_details.xml" value="0.4677734375" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_history.xml" value="0.4794921875" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item.xml" value="0.8818359375" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_brand.xml" value="0.22324561403508772" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_brand_category.xml" value="0.21535087719298246" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_cart.xml" value="0.25" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_comment.xml" value="0.33" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_list_brand_category.xml" value="0.4140625" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_list_flash_sale.xml" value="0.33" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_product.xml" value="0.25" />
-        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_product_sale.xml" value="0.18" />
+        <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/layout/item_product_sale.xml" value="0.34063745019920316" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/menu/nav_login.xml" value="0.25416666666666665" />
         <entry key="..\:/BTL_WebAPI_Android/TQMallMobile/app/src/main/res/menu/nav_main.xml" value="0.20701754385964913" />
       </map>

@@ -7,7 +7,11 @@ public class ProductDetail {
     private int Cost;
     private String Image;
     private boolean Status;
-    private  Product Product;
+    private Product Product;
+
+    public ProductDetail() {
+
+    }
 
     public int getID() {
         return ID;
@@ -73,5 +77,10 @@ public class ProductDetail {
         Image = image;
         Status = status;
         Product = product;
+    }
+
+    @Override
+    public String toString() {
+        return Name;
     }
 }

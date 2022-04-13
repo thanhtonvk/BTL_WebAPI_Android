@@ -36,6 +36,11 @@
             android:background="@drawable/ic_camera" />
     </RelativeLayout>
 
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1A000000" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -49,6 +54,12 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="vertical">
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1A000000" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -74,6 +85,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1A000000" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -98,6 +115,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1A000000" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -123,6 +145,12 @@
                 android:id="@+id/recycler_flashsale"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1A000000" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -26,7 +26,7 @@ public class MainAdapter extends FragmentStatePagerAdapter {
                 return new HistoryFragment();
             case 2:
                 return new CartFragment();
-            case 4:
+            case 3:
                 return new PersonFragment();
             default:
                 return new HomeFragment();

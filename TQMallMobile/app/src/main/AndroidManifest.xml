@@ -13,6 +13,27 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activiy.PayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.ProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.FlashSaleListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.CategoryListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.BrandListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.ProductListByCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.ProductListByBrandActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activiy.MainActivity"
             android:exported="false" />
         <activity

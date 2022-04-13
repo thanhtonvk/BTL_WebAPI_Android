@@ -1,6 +1,7 @@
 package com.tonandquangdz.tqmallmobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductListByBrandActivity;
 import com.tonandquangdz.tqmallmobile.Models.Brand;
 import com.tonandquangdz.tqmallmobile.R;
+import com.tonandquangdz.tqmallmobile.Utils.Common;
 
 import java.util.List;
 
-public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> {
+public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder>{
     Context context;
     List<Brand> brandList;
 
@@ -41,12 +44,22 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
                 Glide.with(context).load(brand.getImage()).into(holder.imageView);
             }
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Common.brand = brand;
+                context.startActivity(new Intent(context, ProductListByBrandActivity.class));
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
         return brandList.size();
     }
+
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;

@@ -27,6 +27,10 @@ public interface ProductDetailsService {
             .client(okHttpClient)
             .build()
             .create(ProductDetailsService.class);
+
     @GET("productdetails/getproductdetailsbyidproduct")
     Call<List<ProductDetail>> getProductDetails(@Query("idProduct") int idProudct);
+
+    @GET("productdetails/getproductdetailsbyid")
+    Call<ProductDetail> getProductDetailsById(@Query("id") int id);
 }

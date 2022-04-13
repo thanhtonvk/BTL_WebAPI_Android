@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -16,14 +17,38 @@ namespace TQMallAPI.Controllers
         [Route("api/productdetails/getproductdetailsbyid")]
         public ProductDetail GetProductDetailsByID(int id)
         {
-            return _dbContext.ProductDetails.Find(id);
+            var item = _dbContext.ProductDetails.Find(id);
+            ProductDetail productDetail = new ProductDetail()
+            {
+                ID = item.ID,
+                Cost = item.Cost,
+                Image = item.Image,
+                Name = item.Name,
+                IDProduct = item.IDProduct
+            };
+            return productDetail;
         }
 
         [HttpGet]
         [Route("api/productdetails/getproductdetailsbyidproduct")]
-        public IQueryable<ProductDetail> GetProductDetailByIdProduct(int idProduct)
+        public IEnumerable<ProductDetail> GetProductDetailByIdProduct(int idProduct)
         {
-            return _dbContext.ProductDetails.Where(x => x.IDProduct == idProduct&&x.Status==true);
+            var model = _dbContext.ProductDetails.Where(x => x.IDProduct == idProduct && x.Status == true);
+            List<ProductDetail> productDetails = new List<ProductDetail>();
+            foreach (var item in model)
+            {
+                ProductDetail productDetail = new ProductDetail()
+                {
+                    ID = item.ID,
+                    Cost = item.Cost,
+                    Image = item.Image,
+                    Name = item.Name,
+                    IDProduct = item.IDProduct
+                };
+                productDetails.Add(productDetail);
+            }
+
+            return productDetails;
         }
 
         [HttpPost]

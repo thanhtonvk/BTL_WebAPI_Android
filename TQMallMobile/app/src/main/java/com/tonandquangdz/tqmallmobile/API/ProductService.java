@@ -28,9 +28,18 @@ public interface ProductService {
             .build()
             .create(ProductService.class);
 
+    @GET("product/getproductbyid")
+    Call<Product> getProductById(@Query("id") int id);
+
     @GET("product/getproductmobile")
     Call<List<Product>> getProductList(@Query("keyword") String keyword, @Query("page") int page, @Query("size") int size);
 
     @GET("product/getproductflashsale")
     Call<List<Product>> getFlashSales(@Query("page") int page, @Query("size") int size);
+
+    @GET("product/getproductbybrand")
+    Call<List<Product>> getProductByBrand(@Query("idBrand") int idBrand, @Query("page") int page, @Query("size") int size);
+
+    @GET("product/getproductbycategory")
+    Call<List<Product>> getProductByCategory(@Query("idCategory") int idBrand, @Query("page") int page, @Query("size") int size);
 }

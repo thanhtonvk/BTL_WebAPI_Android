@@ -1,9 +1,11 @@
 package com.tonandquangdz.tqmallmobile.Fragment.MainFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -18,6 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tonandquangdz.tqmallmobile.API.BrandService;
 import com.tonandquangdz.tqmallmobile.API.CategoryService;
 import com.tonandquangdz.tqmallmobile.API.ProductService;
+import com.tonandquangdz.tqmallmobile.Activiy.BrandListActivity;
+import com.tonandquangdz.tqmallmobile.Activiy.CategoryListActivity;
+import com.tonandquangdz.tqmallmobile.Activiy.FlashSaleListActivity;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductActivity;
 import com.tonandquangdz.tqmallmobile.Adapter.BrandAdapter;
 import com.tonandquangdz.tqmallmobile.Adapter.CategoryAdapter;
 import com.tonandquangdz.tqmallmobile.Adapter.ExpandableHeightGridView;
@@ -27,6 +33,7 @@ import com.tonandquangdz.tqmallmobile.Models.Brand;
 import com.tonandquangdz.tqmallmobile.Models.Category;
 import com.tonandquangdz.tqmallmobile.Models.Product;
 import com.tonandquangdz.tqmallmobile.R;
+import com.tonandquangdz.tqmallmobile.Utils.Common;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -143,8 +150,13 @@ public class HomeFragment extends Fragment {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         categoryList = response.body();
+                        Collections.shuffle(categoryList);
+                        List<Category> categories = new ArrayList<>();
+                        for (int i = 0; i < 8; i++) {
+                            categories.add(categoryList.get(i));
+                        }
                         //  Toast.makeText(getContext(), categoryList.get(0).getImage(), Toast.LENGTH_LONG).show();
-                        categoryAdapter = new CategoryAdapter(getContext(), categoryList);
+                        categoryAdapter = new CategoryAdapter(getContext(), categories);
                         recyclerView_category.setAdapter(categoryAdapter);
                         //Toast.makeText(getContext(), categoryList.size() + "", Toast.LENGTH_LONG).show();
                     }
@@ -179,7 +191,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        ProductService.api.getProductList("", page, 6).enqueue(new Callback<List<Product>>() {
+        ProductService.api.getProductList("", page, 10).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.body() != null) {
@@ -229,15 +241,40 @@ public class HomeFragment extends Fragment {
                 loadProduct();
             }
         });
+        tv_view_all_brand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), BrandListActivity.class));
+            }
+        });
+        tv_view_all_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), CategoryListActivity.class));
+            }
+        });
+        tv_view_all_flashsale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), FlashSaleListActivity.class));
+            }
+        });
+        gv_product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Common.product = productList.get(i);
+                startActivity(new Intent(getContext(), ProductActivity.class));
+            }
+        });
     }
 
     private void loadProduct() {
         page++;
-        ProductService.api.getProductList("", page, 6).enqueue(new Callback<List<Product>>() {
+        ProductService.api.getProductList("", page, 10).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.body() != null) {
-                    for (int i = ((page-1) * 6); i < response.body().size(); i++) {
+                    for (int i = ((page - 1) * 10); i < response.body().size(); i++) {
                         productList.add(response.body().get(i));
                         productAdapter.notifyDataSetChanged();
                     }

@@ -1,6 +1,7 @@
 package com.tonandquangdz.tqmallmobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductListByCategoryActivity;
 import com.tonandquangdz.tqmallmobile.Models.Category;
 import com.tonandquangdz.tqmallmobile.R;
+import com.tonandquangdz.tqmallmobile.Utils.Common;
 
 import java.util.List;
 
@@ -41,6 +44,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 Glide.with(context).load(category.getImage()).into(holder.imageView);
             }
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Common.category = category;
+                context.startActivity(new Intent(context, ProductListByCategoryActivity.class));
+            }
+        });
     }
 
     @Override

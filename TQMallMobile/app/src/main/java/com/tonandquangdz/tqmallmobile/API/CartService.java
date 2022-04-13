@@ -46,4 +46,7 @@ public interface CartService {
 
     @DELETE("cart/deleteallcart")
     Call<Integer> deleteAllCart(@Query("username") String username);
+
+    @GET("cart/summary")
+    Call<Integer> getSummary(@Query("username") String username);
 }

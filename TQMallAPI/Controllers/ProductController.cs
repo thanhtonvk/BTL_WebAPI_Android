@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -24,6 +25,64 @@ namespace TQMallAPI.Controllers
         }
 
         [HttpGet]
+        [Route("api/product/getproductbybrand")]
+        public IEnumerable<Product> GetProductByBrand(int idBrand, int page, int size)
+        {
+            var model = _dbContext.Brands.FirstOrDefault(x => x.ID == idBrand)?.Products;
+            List<Product> products = new List<Product>();
+            foreach (var item in model)
+            {
+                Product product = new Product()
+                {
+                    ID = item.ID,
+                    Name = item.Name,
+                    Cost = item.Cost,
+                    Sale = item.Sale,
+                    Image = item.Image,
+                };
+
+                products.Add(product);
+            }
+
+            int quantity = page * size;
+            if (quantity > products.Count())
+            {
+                return products.ToList();
+            }
+
+            return products.Take(quantity).ToList();
+        }
+
+        [HttpGet]
+        [Route("api/product/getproductbycategory")]
+        public IEnumerable<Product> GetProductByCategory(int idCategory, int page, int size)
+        {
+            var model = _dbContext.Categories.FirstOrDefault(x => x.ID == idCategory)?.Products;
+            List<Product> products = new List<Product>();
+            foreach (var item in model)
+            {
+                Product product = new Product()
+                {
+                    ID = item.ID,
+                    Name = item.Name,
+                    Cost = item.Cost,
+                    Sale = item.Sale,
+                    Image = item.Image,
+                };
+
+                products.Add(product);
+            }
+
+            int quantity = page * size;
+            if (quantity > products.Count())
+            {
+                return products.ToList();
+            }
+
+            return products.Take(quantity).ToList();
+        }
+
+        [HttpGet]
         [Route("api/product/getproductbyid")]
         public Product GetProductByID(int id)
         {
@@ -38,12 +97,11 @@ namespace TQMallAPI.Controllers
                 Description = model.Description,
                 Details = model.Details,
                 Quantity = model.Quantity,
-
             };
             return product;
         }
 
-  	[HttpGet]
+        [HttpGet]
         [Route("api/product/getproductlist")]
         public IQueryable GetProductList(string keyword)
         {
@@ -61,11 +119,12 @@ namespace TQMallAPI.Controllers
             model.Reverse();
             return model;
         }
+
         [HttpGet]
         [Route("api/product/getproductmobile")]
         public IEnumerable<Product> GetProducts(string keyword, int page, int size)
         {
-            var model = _dbContext.Products;
+            var model = _dbContext.Products.Where(x => x.Status == true);
             List<Product> products = new List<Product>();
             foreach (var item in model)
             {
@@ -76,6 +135,7 @@ namespace TQMallAPI.Controllers
                     Cost = item.Cost,
                     Sale = item.Sale,
                     Image = item.Image,
+                    Quantity = item.Quantity
                 };
                 if (string.IsNullOrEmpty(keyword))
                 {
@@ -83,14 +143,15 @@ namespace TQMallAPI.Controllers
                 }
                 else
                 {
-                    if (item.Name.ToLower().Contains(keyword.ToLower()) || item.Brand.Name.ToLower().Contains(keyword.ToLower()) || item.Category.Name.ToLower().Contains(keyword.ToLower()))
+                    if (item.Name.ToLower().Contains(keyword.ToLower()) ||
+                        item.Brand.Name.ToLower().Contains(keyword.ToLower()) ||
+                        item.Category.Name.ToLower().Contains(keyword.ToLower()))
                     {
                         products.Add(product);
                     }
                 }
-
-
             }
+
             int quantity = page * size;
             if (quantity > products.Count())
             {
@@ -99,6 +160,7 @@ namespace TQMallAPI.Controllers
 
             return products.Take(quantity).ToList();
         }
+
         [HttpPost]
         [Route("api/product/addproduct")]
         public int AddProduct([FromBody] Product product)
