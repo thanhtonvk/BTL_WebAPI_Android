@@ -5,7 +5,17 @@
       "ProjectGuid": "4f3a2b9d-7e72-45bb-a711-9767f561b8f0",
       "DisplayName": "TQMallWeb",
       "ColorIndex": 0
+    },
+    "b5516138-42be-40d0-aa17-e6d9abf019e9": {
+      "ProjectGuid": "b5516138-42be-40d0-aa17-e6d9abf019e9",
+      "DisplayName": "TQMallAPI",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

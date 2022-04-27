@@ -1,5 +1,6 @@
 package com.tonandquangdz.tqmallmobile.Activiy;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         setViewLogin();
         setSwichNav();
+
     }
 
     private void init() {

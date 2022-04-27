@@ -22,8 +22,10 @@ import com.tonandquangdz.tqmallmobile.API.CategoryService;
 import com.tonandquangdz.tqmallmobile.API.ProductService;
 import com.tonandquangdz.tqmallmobile.Activiy.BrandListActivity;
 import com.tonandquangdz.tqmallmobile.Activiy.CategoryListActivity;
+import com.tonandquangdz.tqmallmobile.Activiy.ClassifierActivity;
 import com.tonandquangdz.tqmallmobile.Activiy.FlashSaleListActivity;
 import com.tonandquangdz.tqmallmobile.Activiy.ProductActivity;
+import com.tonandquangdz.tqmallmobile.Activiy.SearchActivity;
 import com.tonandquangdz.tqmallmobile.Adapter.BrandAdapter;
 import com.tonandquangdz.tqmallmobile.Adapter.CategoryAdapter;
 import com.tonandquangdz.tqmallmobile.Adapter.ExpandableHeightGridView;
@@ -31,6 +33,7 @@ import com.tonandquangdz.tqmallmobile.Adapter.FlashSaleAdapter;
 import com.tonandquangdz.tqmallmobile.Adapter.ProductAdapter;
 import com.tonandquangdz.tqmallmobile.Models.Brand;
 import com.tonandquangdz.tqmallmobile.Models.Category;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.Models.Product;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
@@ -98,7 +101,6 @@ public class HomeFragment extends Fragment {
     int page = 1;
 
     Button btn_more;
-
     private void initView(View view) {
         btn_more = view.findViewById(R.id.btn_more);
         tv_search = view.findViewById(R.id.tv_search);
@@ -263,9 +265,23 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Common.product = productList.get(i);
+                Common.writeUser(new DataUser(Common.product.getID(),0,0,"null"));
                 startActivity(new Intent(getContext(), ProductActivity.class));
             }
         });
+        tv_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SearchActivity.class));
+            }
+        });
+        btn_open_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ClassifierActivity.class));
+            }
+        });
+
     }
 
     private void loadProduct() {

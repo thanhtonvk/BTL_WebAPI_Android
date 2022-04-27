@@ -12,7 +12,6 @@ import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -31,7 +30,11 @@ public interface OrderDetailsService {
             .create(OrderDetailsService.class);
 
     @POST("ordertdetails/addorderdetails")
-    Call<Integer> addOrderDetails(@Body OrderDetail orderDetail);
+    Call<Integer> addOrderDetails(@Query("username") String username);
+
     @GET("orderdetails/getorderdetails")
     Call<List<OrderDetail>> getOrderDetailsList(@Query("idOrder") int idOrder);
+
+    @GET("orderdetails/summary")
+    Call<Integer> summary(@Query("idOrder") int idOrder);
 }

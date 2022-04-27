@@ -13,9 +13,25 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/order/getorderbuyer")]
-        public IQueryable<Order> GetOrderBuyer(string username)
+        public IEnumerable<Order> GetOrderBuyer(string username)
         {
-            return _dbContext.Orders.Where(x => x.Username == username);
+            var model = _dbContext.Orders.Where(x => x.Username == username);
+            List<Order> orders = new List<Order>();
+            foreach (var item in model)
+            {
+                Order order = new Order()
+                {
+                    ID = item.ID,
+                    Address = item.Address,
+                    Date = item.Date,
+                    PhoneNumber = item.PhoneNumber,
+                    Status = item.Status,
+                    Username = item.Username
+                };
+                orders.Add(order);
+            }
+
+            return orders;
         }
 
         [HttpGet]
@@ -27,7 +43,18 @@ namespace TQMallAPI.Controllers
             var oders = new List<Order>();
             foreach (var item in ordersDetails)
             {
-                oders.Add(_dbContext.Orders.Find(item.IDOrder));
+                var od = _dbContext.Orders.Find(item.IDOrder);
+
+                Order order = new Order()
+                {
+                    ID = od.ID,
+                    Address = od.Address,
+                    Date = od.Date,
+                    PhoneNumber = od.PhoneNumber,
+                    Status = od.Status,
+                    Username = od.Username
+                };
+                oders.Add(order);
             }
 
             return oders;
@@ -39,11 +66,13 @@ namespace TQMallAPI.Controllers
         {
             return _dbContext.Orders.Find(id);
         }
+
         [HttpPost]
         [Route("api/order/addorder")]
         public int AddOrder([FromBody] Order order)
         {
             _dbContext.Orders.Add(order);
+
             return _dbContext.SaveChanges();
         }
 

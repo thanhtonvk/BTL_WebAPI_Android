@@ -1,9 +1,11 @@
 package com.tonandquangdz.tqmallmobile.Fragment.ProductFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -11,13 +13,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tonandquangdz.tqmallmobile.API.ReviewProductService;
+import com.tonandquangdz.tqmallmobile.Activiy.ReviewActivity;
 import com.tonandquangdz.tqmallmobile.Adapter.ReviewAdapter;
 import com.tonandquangdz.tqmallmobile.Models.ReviewProduct;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
 
+import org.lucasr.twowayview.TwoWayView;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,9 +32,10 @@ import retrofit2.Response;
 public class CommentFragment extends Fragment {
 
 
-    ListView lv_comment;
+    TwoWayView lv_comment;
     ReviewAdapter reviewAdapter;
     List<ReviewProduct> reviewProductList = new ArrayList<>();
+    Button btn_rate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,11 +49,13 @@ public class CommentFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         loadData();
+        onClick();
     }
 
     private void initView(View view) {
         lv_comment = view.findViewById(R.id.lv_comment);
-        reviewAdapter = new ReviewAdapter(getContext(), reviewProductList);
+        btn_rate = view.findViewById(R.id.btn_rate);
+        reviewAdapter = new ReviewAdapter(requireContext(), reviewProductList);
         lv_comment.setAdapter(reviewAdapter);
     }
 
@@ -55,6 +64,7 @@ public class CommentFragment extends Fragment {
             @Override
             public void onResponse(Call<List<ReviewProduct>> call, Response<List<ReviewProduct>> response) {
                 if (response.body() != null) {
+                    reviewProductList.clear();
                     for (ReviewProduct reviewProduct : response.body()
                     ) {
                         reviewProductList.add(reviewProduct);
@@ -66,6 +76,15 @@ public class CommentFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ReviewProduct>> call, Throwable t) {
 
+            }
+        });
+    }
+
+    private void onClick() {
+        btn_rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ReviewActivity.class));
             }
         });
     }

@@ -1,7 +1,9 @@
 package com.tonandquangdz.tqmallmobile.Activiy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -51,6 +53,13 @@ public class ProductListByBrandActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadProduct();
+            }
+        });
+        gv_product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Common.product = productList.get(i);
+                startActivity(new Intent(getApplicationContext(), ProductActivity.class));
             }
         });
     }

@@ -57,7 +57,6 @@ public class CartFragment extends Fragment {
         initView(view);
         loadData();
         onClick();
-
     }
 
     private void initView(View view) {
@@ -115,7 +114,10 @@ public class CartFragment extends Fragment {
         btn_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), PayActivity.class));
+                if(cartList.size()>0){
+                    startActivity(new Intent(getContext(), PayActivity.class));
+                }
+
             }
         });
     }

@@ -15,6 +15,10 @@ public class Cart {
     private ProductDetail productDetail;
     private Product product;
 
+    public Cart() {
+
+    }
+
     public int getID() {
         return ID;
     }

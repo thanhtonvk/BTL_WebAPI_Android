@@ -1,61 +1,29 @@
 package com.tonandquangdz.tqmallmobile.Fragment.OrderStatusFragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.tonandquangdz.tqmallmobile.API.OrderService;
+import com.tonandquangdz.tqmallmobile.Adapter.StatusOrderAdapter;
+import com.tonandquangdz.tqmallmobile.Models.Order;
 import com.tonandquangdz.tqmallmobile.R;
+import com.tonandquangdz.tqmallmobile.Utils.Common;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PrepareFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class PrepareFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PrepareFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PrepareFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PrepareFragment newInstance(String param1, String param2) {
-        PrepareFragment fragment = new PrepareFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,4 +31,45 @@ public class PrepareFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_prepare, container, false);
     }
+
+    ListView lv_product;
+    StatusOrderAdapter orderAdapter;
+    List<Order> orderList = new ArrayList<>();
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+        loadData();
+    }
+
+
+    private void initView(View view) {
+        lv_product = view.findViewById(R.id.lv_product);
+        orderAdapter = new StatusOrderAdapter(getContext(), orderList);
+        lv_product.setAdapter(orderAdapter);
+    }
+
+    private void loadData() {
+        OrderService.api.getOrderList(Common.username).enqueue(new Callback<List<Order>>() {
+            @Override
+            public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
+                if (response.body() != null) {
+                    orderList.clear();
+                    for (Order order : response.body()) {
+                        if (order.getStatus() == 0) {
+                            orderList.add(order);
+                            orderAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Order>> call, Throwable t) {
+
+            }
+        });
+    }
+
 }

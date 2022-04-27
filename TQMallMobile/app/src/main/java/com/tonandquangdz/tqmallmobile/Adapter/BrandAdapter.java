@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.tonandquangdz.tqmallmobile.Activiy.ProductListByBrandActivity;
 import com.tonandquangdz.tqmallmobile.Models.Brand;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
 
@@ -48,6 +49,7 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder>{
             @Override
             public void onClick(View view) {
                 Common.brand = brand;
+                Common.writeUser(new DataUser(0,0,brand.getID(),"null"));
                 context.startActivity(new Intent(context, ProductListByBrandActivity.class));
             }
         });

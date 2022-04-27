@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tonandquangdz.tqmallmobile.API.AccountService;
 import com.tonandquangdz.tqmallmobile.Activiy.MainActivity;
+import com.tonandquangdz.tqmallmobile.Models.Account;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
 
@@ -75,6 +76,20 @@ public class LoginFragment extends Fragment {
                             if (rs == 1) {
                                 startActivity(new Intent(getContext(), MainActivity.class));
                                 Common.username  = username;
+                                AccountService.api.getAccount(Common.username).enqueue(new Callback<Account>() {
+                                    @Override
+                                    public void onResponse(Call<Account> call, Response<Account> response) {
+                                        if (response.body() != null) {
+                                            Common.account = response.body();
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Account> call, Throwable t) {
+
+                                    }
+                                });
                                 getActivity().finish();
                             } else {
                                 //không hợp lệ

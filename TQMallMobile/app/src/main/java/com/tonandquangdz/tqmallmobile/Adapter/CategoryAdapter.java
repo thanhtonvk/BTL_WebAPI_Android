@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.tonandquangdz.tqmallmobile.Activiy.ProductListByCategoryActivity;
 import com.tonandquangdz.tqmallmobile.Models.Category;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
 
@@ -48,6 +49,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Common.category = category;
+                Common.writeUser(new DataUser(0,category.getID(),0,"null"));
                 context.startActivity(new Intent(context, ProductListByCategoryActivity.class));
             }
         });

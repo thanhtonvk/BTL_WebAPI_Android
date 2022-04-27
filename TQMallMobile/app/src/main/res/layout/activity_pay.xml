@@ -17,6 +17,7 @@
         android:textSize="20sp" />
 
     <ScrollView
+        android:layout_above="@id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/bar">
@@ -34,14 +35,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:background="@drawable/border_edittext"
                 android:gravity="center">
 
                 <EditText
                     android:id="@+id/edt_address"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
                     android:layout_toLeftOf="@id/btn_position"
                     android:background="@color/white"
@@ -54,6 +55,26 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/ic_location" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/border_edittext"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/edt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/white"
+                    android:paddingLeft="5dp" />
             </RelativeLayout>
 
             <LinearLayout
@@ -82,10 +103,10 @@
                     android:background="#FDD835" />
 
                 <com.tonandquangdz.tqmallmobile.Adapter.ExpandableHeightGridView
-                    android:id="@+id/gv_product"
+                    android:numColumns="1"
+                    android:id="@+id/lv_product"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="1" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 
@@ -177,11 +198,13 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/tv_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tổng số tiền(1 sản phẩm)" />
 
                 <TextView
+                    android:id="@+id/tv_sum_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -222,7 +245,7 @@
                     android:background="#7CB342" />
 
                 <com.tonandquangdz.tqmallmobile.Adapter.ExpandableHeightGridView
-                    android:id="@+id/gv_voucher"
+                    android:id="@+id/lv_voucher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="1" />
@@ -269,19 +292,21 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_sum_product_foot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="đ10000000" />
 
                     <TextView
-
+                        android:id="@+id/tv_transpot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="đ10000000" />
 
                     <TextView
+                        android:id="@+id/tv_voucher"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -289,6 +314,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_sum_pay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -309,9 +335,9 @@
         android:layout_alignParentBottom="true">
 
         <LinearLayout
-            android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -325,7 +351,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_sum"
+                android:id="@+id/tv_sum_final"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"

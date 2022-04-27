@@ -8,7 +8,18 @@ public class ReviewProduct {
     private String Review;
     private String Image;
 
-    private  Account Account;
+    private Account Account;
+
+    public ReviewProduct() {
+
+    }
+
+    public ReviewProduct(String username, int IDProduct, int rate, String review) {
+        Username = username;
+        this.IDProduct = IDProduct;
+        Rate = rate;
+        Review = review;
+    }
 
     public int getID() {
         return ID;

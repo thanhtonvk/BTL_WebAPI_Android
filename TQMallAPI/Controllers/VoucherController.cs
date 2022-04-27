@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Http;
@@ -42,9 +43,43 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/voucher/getvoucherbyaccount")]
-        public IQueryable<Voucher> GetVoucherByAccount(string account)
+        public IEnumerable<Voucher> GetVoucherByAccount(string account)
         {
-            return _dbContext.Vouchers.Where(x => x.Username == account);
+            List<Voucher> vouchers = new List<Voucher>();
+            var model =  _dbContext.Vouchers.Where(x => x.Username == account && x.Quantity>0&&x.Status==true);
+            foreach (var voucher in model)
+            {
+                Voucher vc = new Voucher()
+                {
+                    ID = voucher.ID,
+                    Status = voucher.Status,
+                    Quantity = voucher.Quantity,
+                    Sale = voucher.Sale,
+                   Username = voucher.Username
+                };
+                vouchers.Add(vc);
+            }
+            return vouchers;
+        }
+        [HttpGet]
+        [Route("api/voucher/getvouchers")]
+        public IEnumerable<Voucher> GetVouchers()
+        {
+            List<Voucher> vouchers = new List<Voucher>();
+            var model = _dbContext.Vouchers.Where(x=>x.Quantity > 0 && x.Status == true);
+            foreach (var voucher in model)
+            {
+                Voucher vc = new Voucher()
+                {
+                    ID = voucher.ID,
+                    Status = voucher.Status,
+                    Quantity = voucher.Quantity,
+                    Sale = voucher.Sale,
+                    Username = voucher.Username
+                };
+                vouchers.Add(vc);
+            }
+            return vouchers;
         }
 
         [HttpGet]

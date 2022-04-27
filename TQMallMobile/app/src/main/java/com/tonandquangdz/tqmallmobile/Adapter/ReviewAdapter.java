@@ -35,7 +35,7 @@ public class ReviewAdapter extends ArrayAdapter<ReviewProduct> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_comment, parent, true);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_comment, parent, false);
         }
         ImageView imageView = convertView.findViewById(R.id.image_avatar);
         ImageView star1 = convertView.findViewById(R.id.img_star_1);

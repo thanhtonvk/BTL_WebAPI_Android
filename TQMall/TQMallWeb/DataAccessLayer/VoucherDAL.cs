@@ -13,7 +13,7 @@ namespace DataAccessLayer
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Common.baseUrl);
-                var response = client.GetAsync($"voucher/getvoucherbyaccount?{account}");
+                var response = client.GetAsync($"voucher/getvoucherbyaccount?account={account}");
                 response.Wait();
                 var result = response.Result;
                 if (result.IsSuccessStatusCode)

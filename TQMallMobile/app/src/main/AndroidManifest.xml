@@ -3,6 +3,9 @@
     package="com.tonandquangdz.tqmallmobile">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Activiy.ClassifierActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.SearchProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activiy.StatusOrderActivity"
+            android:exported="false" />
         <activity
             android:name=".Activiy.PayActivity"
             android:exported="false" />

@@ -1,6 +1,7 @@
 package com.tonandquangdz.tqmallmobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductActivity;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.Models.Product;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
@@ -43,6 +46,15 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.View
         holder.tv_sale.setText((product.getSale() * 100) + "%");
         String money = Common.formatMoney((int) (product.getCost() * (1 - product.getSale())));
         holder.tv_cost.setText(money);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Common.product = product;
+                Common.writeUser(new DataUser(Common.product.getID(),0,0,"null"));
+                context.startActivity(new Intent(context, ProductActivity.class));
+            }
+        });
     }
 
 
@@ -54,7 +66,6 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.View
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_product;
         TextView tv_cost, tv_sale;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

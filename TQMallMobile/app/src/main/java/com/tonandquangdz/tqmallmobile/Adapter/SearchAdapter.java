@@ -9,68 +9,110 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.R;
-import com.tonandquangdz.tqmallmobile.Utils.Common;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchFragment extends ArrayAdapter implements Filterable {
-    List<String> searchStrings = new ArrayList<>();
+public class SearchAdapter extends ArrayAdapter implements Filterable {
+    private ArrayList<String> fullList;
+    private ArrayList<String> mOriginalValues;
+    private ArrayFilter mFilter;
 
-    public SearchFragment(@NonNull Context context) {
-        super(context, 0);
-        List<DataUser> dataUsers = Common.toListObject(Common.account.getDataUser());
-        for (DataUser dataUser : dataUsers
-        ) {
-            if (!dataUser.getSearch().equals("")) {
-                searchStrings.add(dataUser.getSearch());
-            }
-        }
+    public SearchAdapter(Context context, List<String> objects) {
+
+        super(context, 0, objects);
+        fullList = (ArrayList<String>) objects;
+        mOriginalValues = new ArrayList<String>(fullList);
 
     }
 
     @Override
     public int getCount() {
-        return searchStrings.size();
+        return fullList.size();
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public String getItem(int position) {
+        return fullList.get(position);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_search, parent, false);
+
         }
         TextView tv_search = convertView.findViewById(R.id.tv_search);
-        tv_search.setText(searchStrings.get(position));
+        tv_search.setText(fullList.get(position));
         return convertView;
     }
 
-    @Nullable
-    @Override
-    public Object getItem(int position) {
-        return searchStrings.get(position);
-    }
-
-    @NonNull
     @Override
     public Filter getFilter() {
-        return super.getFilter();
+        if (mFilter == null) {
+            mFilter = new ArrayFilter();
+        }
+        return mFilter;
     }
-    class ArrayFilter extends Filter{
+
+
+    private class ArrayFilter extends Filter {
+        private Object lock;
 
         @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            return null;
+        protected FilterResults performFiltering(CharSequence prefix) {
+            FilterResults results = new FilterResults();
+
+            if (mOriginalValues == null) {
+                synchronized (lock) {
+                    mOriginalValues = new ArrayList<String>(fullList);
+                }
+            }
+
+            if (prefix == null || prefix.length() == 0) {
+                synchronized (lock) {
+                    ArrayList<String> list = new ArrayList<String>(mOriginalValues);
+                    results.values = list;
+                    results.count = list.size();
+                }
+            } else {
+                final String prefixString = prefix.toString().toLowerCase();
+
+                ArrayList<String> values = mOriginalValues;
+                int count = values.size();
+
+                ArrayList<String> newValues = new ArrayList<String>(count);
+
+                for (int i = 0; i < count; i++) {
+                    String item = values.get(i);
+                    if (item.toLowerCase().contains(prefixString)) {
+                        newValues.add(item);
+                    }
+
+                }
+
+                results.values = newValues;
+                results.count = newValues.size();
+            }
+
+            return results;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+        protected void publishResults(CharSequence constraint, FilterResults results) {
 
+            if (results.values != null) {
+                fullList = (ArrayList<String>) results.values;
+            } else {
+                fullList = new ArrayList<String>();
+            }
+            if (results.count > 0) {
+                notifyDataSetChanged();
+            } else {
+                notifyDataSetInvalidated();
+            }
         }
     }
 }

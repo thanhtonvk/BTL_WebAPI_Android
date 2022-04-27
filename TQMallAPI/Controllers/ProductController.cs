@@ -103,21 +103,66 @@ namespace TQMallAPI.Controllers
 
         [HttpGet]
         [Route("api/product/getproductlist")]
-        public IQueryable GetProductList(string keyword)
+        public IEnumerable<Product> GetProductList(string keyword)
         {
-            var model = _dbContext.Products.Where(x => x.Status == true);
+            var model = _dbContext.Products.Where(x => x.Status == true).ToList();
+            List<Product> products = new List<Product>();
             if (string.IsNullOrEmpty(keyword))
             {
                 model.Reverse();
-                return model;
+                foreach (var  item in model)
+                {
+                    Product product = new Product
+                    {
+                        Cost = item.Cost,
+                        Sale = item.Sale,
+                        Details = item.Details,
+                        Quantity = item.Quantity,
+                        Status = item.Status,
+                        Description = item.Description,
+                        FlashSaleFrom = item.FlashSaleFrom,
+                        FlashSaleTo = item.FlashSaleTo,
+                        Image = item.Image,
+                        ID = item.ID,
+                        Name = item.Name,
+                        Username = item.Username,
+                        IDCategory = item.IDCategory,
+                        IDBrand = item.IDBrand,
+
+                    };
+                    products.Add(product);
+                }
+                return products;
             }
 
-            model = model.Where(x => x.Name.ToLower().Contains(keyword.ToLower()) ||
-                                     x.Details.ToLower().Contains(keyword.ToLower()) ||
-                                     x.Description.ToLower().Contains(keyword.ToLower()) ||
-                                     x.Category.Name.ToLower().Contains(keyword.ToLower()));
-            model.Reverse();
-            return model;
+            var list = model.Where(x => x.Name.ToLower().Contains(keyword.ToLower())||
+                                        x.Category.Name.ToLower().Contains(keyword.ToLower())||
+                                        x.Brand.Name.ToLower().Contains(keyword.ToLower())).ToList();
+            list.Reverse();
+           
+            foreach (var  item in list)
+            {
+                Product product = new Product
+                {
+                    Cost = item.Cost,
+                    Sale = item.Sale,
+                    Details = item.Details,
+                    Quantity = item.Quantity,
+                    Status = item.Status,
+                    Description = item.Description,
+                    FlashSaleFrom = item.FlashSaleFrom,
+                    FlashSaleTo = item.FlashSaleTo,
+                    Image = item.Image,
+                    ID = item.ID,
+                    Name = item.Name,
+                    Username = item.Username,
+                    IDCategory = 0,
+                    IDBrand = item.IDBrand,
+
+                };
+                products.Add(product);
+            }
+            return products;
         }
 
         [HttpGet]

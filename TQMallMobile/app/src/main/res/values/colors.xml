@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#2F80ED</color>
+    <color name="prepare">@color/black</color>
+    <color name="transport">#FFA000</color>
+    <color name="success">#388E3C</color>
+    <color name="cancel">#D32F2F</color>
 </resources>

@@ -18,11 +18,12 @@ namespace TQMallAPI.Controllers
             var model = _dbContext.Categories.Where(x => x.Status == true);
             foreach (var item in model)
             {
-                Category category = new Category()
+                Category category = new Category
                 {
                     ID = item.ID,
                     Name = item.Name,
                     Image = item.Image,
+                    Status = item.Status,
                 };
                 list.Add(category);
             }
@@ -39,8 +40,9 @@ namespace TQMallAPI.Controllers
                 ID = model.ID,
                 Name = model.Name,
                 Image = model.Image,
+                Status = model.Status
             };
-            return model;
+            return category;
         }
 
         [HttpPost]

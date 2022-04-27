@@ -1,66 +1,100 @@
 package com.tonandquangdz.tqmallmobile.Fragment.MainFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.tonandquangdz.tqmallmobile.API.AccountService;
+import com.tonandquangdz.tqmallmobile.API.ProductService;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductActivity;
+import com.tonandquangdz.tqmallmobile.Adapter.ProductAdapter;
+import com.tonandquangdz.tqmallmobile.Models.Account;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
+import com.tonandquangdz.tqmallmobile.Models.Product;
 import com.tonandquangdz.tqmallmobile.R;
+import com.tonandquangdz.tqmallmobile.Utils.Common;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HistoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HistoryFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HistoryFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HistoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HistoryFragment newInstance(String param1, String param2) {
-        HistoryFragment fragment = new HistoryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false);
+    }
+
+    GridView gridView;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initView(view);
+        loadData();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Common.product = productList.get(i);
+                startActivity(new Intent(getContext(), ProductActivity.class));
+            }
+        });
+    }
+
+    private void initView(View view) {
+        gridView = view.findViewById(R.id.lv_product);
+    }
+
+    List<DataUser> dataUsers;
+    List<Product> productList = new ArrayList<>();
+
+    private void loadData() {
+        ProductAdapter productAdapter = new ProductAdapter(getContext(), productList);
+        gridView.setAdapter(productAdapter);
+        if (Common.account.getDataUser() != null) {
+            dataUsers = Common.toListObject(Common.account.getDataUser());
+            Collections.reverse(dataUsers);
+            Log.e("TAG",dataUsers.size()+"");
+            for (DataUser dataUser : dataUsers
+            ) {
+                if (dataUser.getIdProduct() > 0) {
+                    ProductService.api.getProductById(dataUser.getIdProduct()).enqueue(new Callback<Product>() {
+                        @Override
+                        public void onResponse(Call<Product> call, Response<Product> response) {
+                            if (response.body() != null) {
+                                Log.e("TAG",response.body().getName());
+                                productList.add(response.body());
+                                productAdapter.notifyDataSetChanged();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Product> call, Throwable t) {
+
+                        }
+                    });
+                }
+
+            }
+        }
+
     }
 }

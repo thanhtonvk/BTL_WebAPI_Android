@@ -150,6 +150,7 @@
     <Compile Include="Areas\Seller\Controllers\OrderController.cs" />
     <Compile Include="Areas\Seller\Controllers\ProductController.cs" />
     <Compile Include="Areas\Seller\Controllers\ProductDetailsController.cs" />
+    <Compile Include="Areas\Seller\Controllers\VoucherController.cs" />
     <Compile Include="Areas\Seller\SellerAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccessLayer\AccountDAL.cs" />
@@ -900,6 +901,8 @@
     <Content Include="Areas\Seller\Views\ProductDetails\Update.cshtml" />
     <Content Include="Areas\Seller\Views\Order\Index.cshtml" />
     <Content Include="Areas\Seller\Views\Order\Details.cshtml" />
+    <Content Include="Areas\Seller\Views\Voucher\Index.cshtml" />
+    <Content Include="Areas\Seller\Views\Voucher\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\dirPagination.tpl.html" />

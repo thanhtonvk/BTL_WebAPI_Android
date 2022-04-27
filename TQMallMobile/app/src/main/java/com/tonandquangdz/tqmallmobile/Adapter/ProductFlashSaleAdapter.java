@@ -1,6 +1,7 @@
 package com.tonandquangdz.tqmallmobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.tonandquangdz.tqmallmobile.Activiy.ProductActivity;
+import com.tonandquangdz.tqmallmobile.Models.DataUser;
 import com.tonandquangdz.tqmallmobile.Models.Product;
 import com.tonandquangdz.tqmallmobile.R;
 import com.tonandquangdz.tqmallmobile.Utils.Common;
@@ -50,8 +53,18 @@ public class ProductFlashSaleAdapter extends ArrayAdapter<Product> {
         tv_cost_real.setText(Common.formatMoney(product.getCost()));
         tv_cost_real.setPaintFlags(tv_cost_real.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         tv_cost_sale.setText(Common.formatMoney((int) (product.getCost() * (1 - product.getSale()))));
-        tv_sale.setText("-" + product.getSale()*100 + "%");
+        tv_sale.setText("-" + product.getSale() * 100 + "%");
         Glide.with(context).load(product.getImage()).into(img);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Common.product = product;
+                Common.writeUser(new DataUser(Common.product.getID(),0,0,"null"));
+                Intent intent=new Intent(getContext(), ProductActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 }

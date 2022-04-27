@@ -18,9 +18,10 @@ namespace TQMallAPI.Controllers
             List<Brand> list = new List<Brand>();
             foreach (var item in model)
             {
-                Brand brand = new Brand() { ID = item.ID, Name = item.Name, Image = item.Image };
+                Brand brand = new Brand() {ID = item.ID, Name = item.Name, Image = item.Image, Status = item.Status};
                 list.Add(brand);
             }
+
             return list;
         }
 
@@ -29,8 +30,8 @@ namespace TQMallAPI.Controllers
         public Brand GetBrandByID(int id)
         {
             var model = _dbContext.Brands.Find(id);
-            Brand brand = new Brand() { ID = model.ID, Name = model.Name, Image = model.Image };
-            return model;
+            Brand brand = new Brand() {ID = model.ID, Name = model.Name, Image = model.Image,Status = model.Status};
+            return brand;
         }
 
         [HttpPost]

@@ -28,8 +28,8 @@ public interface VoucherService {
             .client(okHttpClient)
             .build()
             .create(VoucherService.class);
-    @GET("voucher/getvoucherbyaccount")
-    Call<List<Voucher>> getVoucher(@Query("account") String account);
+    @GET("voucher/getvouchers")
+    Call<List<Voucher>> getVoucher();
     @GET("voucher/updatevoucher")
     Call<Integer>updateVoucher(@Body Voucher voucher);
 }
