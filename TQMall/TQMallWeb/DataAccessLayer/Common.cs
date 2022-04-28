@@ -2,6 +2,6 @@
 {
     public class Common
     {
-        public static string baseUrl = "http://192.168.1.107:2803/api/";
+        public static string baseUrl = "http://localhost:12345/api/";
     }
 }
